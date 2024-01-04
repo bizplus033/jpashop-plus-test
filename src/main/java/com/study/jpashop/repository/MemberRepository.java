@@ -1,4 +1,4 @@
-package com.study.jpashop.MemberRepository;
+package com.study.jpashop.repository;
 
 import com.study.jpashop.domain.Member;
 import jakarta.persistence.EntityManager;
