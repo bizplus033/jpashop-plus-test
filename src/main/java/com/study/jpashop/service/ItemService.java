@@ -1,6 +1,7 @@
 package com.study.jpashop.service;
 
 import com.study.jpashop.domain.Item;
+import com.study.jpashop.domain.item.Book;
 import com.study.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,10 @@ public class ItemService {
 
     public Item findOne(Long itemId) {
         return itemRepository.findOne(itemId);
+    }
+    @Transactional
+    public void updateItem(UpdateItemForm updateItemForm) {
+        Book item = (Book) itemRepository.findOne(updateItemForm.getId());
+        item.update(updateItemForm.getName(), updateItemForm.getPrice(), updateItemForm.getStockQuantity());
     }
 }
