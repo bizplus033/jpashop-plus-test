@@ -58,4 +58,13 @@ public class OrderController {
 
         return "order/orderList";
     }
+
+    /**
+     * 주문 취소
+     * */
+    @PostMapping(value = "orders/{orderId}/cancel")
+    public String cancelOrder(@PathVariable("orderId") Long orderId) {
+        orderService.cancelOrder(orderId);
+        return "redirect:/orders";
+    }
 }
