@@ -2,7 +2,9 @@ package com.study.jpashop.domain;
 
 import com.study.jpashop.exception.NotEnoughStockException;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import java.util.List;
 @DiscriminatorColumn(name = "dtype")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class Item {
     @Id
     @GeneratedValue
