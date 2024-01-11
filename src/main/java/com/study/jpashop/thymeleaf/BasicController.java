@@ -87,11 +87,21 @@ public class BasicController {
     }
 
     /**
-     * 유틸리티 객체와 날짜
+     * 유틸리티 객체와 날짜 - #temporals
      * */
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
         return "thymeleaf/basic/date";
+    }
+
+    /**
+     * 링크 - @{...}
+     */
+    @GetMapping("/link")
+    public String link(Model model) {
+        model.addAttribute("param1", "data1");
+        model.addAttribute("param2", "data2");
+        return "thymeleaf/basic/link";
     }
 }
