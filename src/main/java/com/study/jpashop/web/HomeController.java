@@ -14,4 +14,10 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping("/thymeleaf")
+    public String thymeleaf() {
+        log.info("thymeleaf start");
+        return "thymeleaf";
+    }
+
 }
