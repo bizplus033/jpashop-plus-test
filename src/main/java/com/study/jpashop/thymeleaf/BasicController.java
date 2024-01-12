@@ -149,4 +149,13 @@ public class BasicController {
 
         model.addAttribute("users", list);
     }
+
+    /**
+     * 조건부 평가
+     */
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "thymeleaf/basic/condition";
+    }
 }
