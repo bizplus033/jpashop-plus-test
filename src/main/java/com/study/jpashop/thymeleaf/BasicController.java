@@ -131,4 +131,22 @@ public class BasicController {
     public String attribute() {
         return "thymeleaf/basic/attribute";
     }
+
+    /**
+     * 반복
+     */
+    @GetMapping("/each")
+    public String each(Model model) {
+        addUsers(model);
+        return "thymeleaf/basic/each";
+    }
+
+    private void addUsers(Model model) {
+        List<User> list = new ArrayList<>();
+        list.add(new User("userA", 10));
+        list.add(new User("userB", 20));
+        list.add(new User("userC", 30));
+
+        model.addAttribute("users", list);
+    }
 }
