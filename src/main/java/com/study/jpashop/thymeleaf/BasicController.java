@@ -186,4 +186,14 @@ public class BasicController {
 
         model.addAttribute("users", list);
     }
+
+    /**
+     * Javascript 인라인
+     */
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+        addUser(model);
+        model.addAttribute("user", new User("userD", 40));
+        return "thymeleaf/basic/javascript";
+    }
 }
