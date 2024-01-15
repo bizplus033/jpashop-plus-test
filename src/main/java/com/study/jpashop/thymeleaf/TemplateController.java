@@ -16,4 +16,12 @@ public class TemplateController {
     public String layout() {
         return "thymeleaf/template/layout/layoutMain";
     }
+
+    /**
+     * html 전체에 템플릿 레이아웃 적용
+     */
+    @GetMapping("/layoutExtend")
+    public String layoutExtends() {
+        return  "thymeleaf/template/layoutExtend/layoutExtendMain";
+    }
 }
