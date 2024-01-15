@@ -167,4 +167,23 @@ public class BasicController {
         model.addAttribute("data", "spring!");
         return "thymeleaf/basic/comments";
     }
+
+    /**
+     * 블록
+     */
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUser(model);
+        return "thymeleaf/basic/block";
+    }
+
+    private void addUser(Model model) {
+
+        List<User> list = new ArrayList<>();
+        list.add(new User("userA", 10));
+        list.add(new User("userB", 20));
+        list.add(new User("userC", 30));
+
+        model.addAttribute("users", list);
+    }
 }
