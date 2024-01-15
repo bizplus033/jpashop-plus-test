@@ -158,4 +158,13 @@ public class BasicController {
         addUsers(model);
         return "thymeleaf/basic/condition";
     }
+
+    /**
+     * 주석
+     */
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "spring!");
+        return "thymeleaf/basic/comments";
+    }
 }
