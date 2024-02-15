@@ -52,4 +52,10 @@ public class OrderSimpleApiController {
             address = order.getDelivery().getAddress(); // LAZY 강제 초기화
         }
     }
+
+    @GetMapping("/api/v3/simple-orders")
+    public List<SimpleOrderDto> ordersV3() {
+        List<Order> all = orderRepository.findAllWithMemberDelivery();
+        return all.stream().map(SimpleOrderDto::new).collect(Collectors.toList());
+    }
 }
