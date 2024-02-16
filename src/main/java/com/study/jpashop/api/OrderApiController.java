@@ -2,6 +2,8 @@ package com.study.jpashop.api;
 
 import com.study.jpashop.domain.*;
 import com.study.jpashop.repository.OrderRepository;
+import com.study.jpashop.repository.order.query.OrderQueryDto;
+import com.study.jpashop.repository.order.query.OrderQueryRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderApiController {
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepository;
 
     // 양방향 연관관계의 경우 무한루프 발생하므로 @JsonIgnore
     @GetMapping("/api/v1/orders")
@@ -84,6 +87,11 @@ public class OrderApiController {
         List<Order> all = orderRepository.findAllWithMemberDelivery(offset, limit);
         List<OrderDto> result = all.stream().map(OrderDto::new).collect(Collectors.toList());
         return result;
+    }
+
+    @GetMapping("/api/v4/orders")
+    public List<OrderQueryDto> ordersV4() {
+        return orderQueryRepository.findOrderQueryDtos();
     }
 
 }
